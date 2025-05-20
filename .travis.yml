@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t kmosphilis/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true kmosphilis/docker-react npm run test
